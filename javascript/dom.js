@@ -80,45 +80,45 @@ for (let array of productoA) {
 
 //Eventos sobre el Formulario Newsletter
 
-// let form = document.getElementById("formulario");
-// form.addEventListener("submit", (e) => botonEnviar(e));
+let form = document.getElementById("formulario");
+form.addEventListener("submit", (e) => botonEnviar(e));
 
 
-// const botonEnviar = (e) => {
-//     e.preventDefault();
-//     let email = e.target[0].value;
-//     createNewSuscriptor({
-//         email
-//     });
+const botonEnviar = (e) => {
+    e.preventDefault();
+    let email = e.target[0].value;
+    createNewSuscriptor({
+        email
+    });
 
-// };
+};
 
-// class Suscriptor {
-//     constructor(email, id) {
-//         this.email = email;
-//         this.id = id;
-//     }
+class Suscriptor {
+    constructor(email, id) {
+        this.email = email;
+        this.id = id;
+    }
 
 
-// };
-// const createNewSuscriptor = (email) => {
-//     const id = listasuscriptores.generateId();
-//     const newSubs = new Suscriptor(email, id);
-//     listasuscriptores.addSuscriptor(newSubs);
-// };
-// class Suscriptores {
-//     constructor() {
-//         this.listasuscriptores = [];
-//     }
-//     addSuscriptor(suscriptort) {
-//         this.listasuscriptores.push(suscriptort);
-//     }
+};
+const createNewSuscriptor = (email) => {
+    const id = listasuscriptores.generateId();
+    const newSubs = new Suscriptor(email, id);
+    listasuscriptores.addSuscriptor(newSubs);
+};
+class Suscriptores {
+    constructor() {
+        this.listasuscriptores = [];
+    }
+    addSuscriptor(suscriptort) {
+        this.listasuscriptores.push(suscriptort);
+    }
 
-//     generateId() {
-//         return Date.now();
-//     }
-// };
-// const listasuscriptores = new Suscriptores();
+    generateId() {
+        return Date.now();
+    }
+};
+const listasuscriptores = new Suscriptores();
 
 
 //Eventos de carrito
