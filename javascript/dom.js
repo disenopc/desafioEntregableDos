@@ -1,42 +1,42 @@
-// const productoA = [];
-// class Producto {
-//     constructor(nombre, categoria, precio, stock, img) {
-//         this.nombre = nombre;
-//         this.categorio = categoria;
-//         this.precio = precio;
-//         this.stock = stock;
-//         this.img = img;
+const productoA = [];
+class Producto {
+    constructor(nombre, categoria, precio, stock, img) {
+        this.nombre = nombre;
+        this.categorio = categoria;
+        this.precio = precio;
+        this.stock = stock;
+        this.img = img;
 
-//     }
+    }
 
-// };
+};
 
-// productoA.push(new Producto("Walt-Can Adulto", "Alimento Balanceado", 1000, 0, "./images/waltcanadulto.jpg"))
-// productoA.push(new Producto("Dog-Chow Adulto", "Alimento Balanceado", 1000, 0, "./images/dogchowadulto.png"))
-// productoA.push(new Producto("Dogui", "Alimento Balanceado", 1000, 0, "./images/dogui.png"))
-// productoA.push(new Producto("Econocan", "Alimento Balanceado", 1000, 0, "./images/econocan.png"))
-// productoA.push(new Producto("Pedigree Adulto", "Alimento Balanceado", 1000, 0, "./images/pedigreeadulto.png"))
-// productoA.push(new Producto("Sabrositos Adulto", "Alimento Balanceado", 1000, 0, "./images/sabrositosadulto.png"))
-// productoA.push(new Producto("Jaspe Adulto", "Alimento Balanceado", 1000, 0, "./images/jaspeadulto.png"))
-// productoA.push(new Producto("Walt-Can Cachorro", "Alimento Balanceado", 1000, 0, "./images/waltcancachorro.png"))
-// productoA.push(new Producto("Jaspe Cachorro", "Alimento Balanceado", 1000, 0, "./images/jaspecachorro.jpg"))
-// productoA.push(new Producto("Dog-Chow Cachorro", "Alimento Balanceado", 1000, 0, "./images/dogchowcachorro.png"))
-// productoA.push(new Producto("Sabrositos Cachorro", "Alimento Balanceado", 1000, 0, "./images/sabrositoscachorr.png"))
+productoA.push(new Producto("Walt-Can Adulto", "Alimento Balanceado", 1000, 0, "./images/waltcanadulto.jpg"))
+productoA.push(new Producto("Dog-Chow Adulto", "Alimento Balanceado", 1000, 0, "./images/dogchowadulto.png"))
+productoA.push(new Producto("Dogui", "Alimento Balanceado", 1000, 0, "./images/dogui.png"))
+productoA.push(new Producto("Econocan", "Alimento Balanceado", 1000, 0, "./images/econocan.png"))
+productoA.push(new Producto("Pedigree Adulto", "Alimento Balanceado", 1000, 0, "./images/pedigreeadulto.png"))
+productoA.push(new Producto("Sabrositos Adulto", "Alimento Balanceado", 1000, 0, "./images/sabrositosadulto.png"))
+productoA.push(new Producto("Jaspe Adulto", "Alimento Balanceado", 1000, 0, "./images/jaspeadulto.png"))
+productoA.push(new Producto("Walt-Can Cachorro", "Alimento Balanceado", 1000, 0, "./images/waltcancachorro.png"))
+productoA.push(new Producto("Jaspe Cachorro", "Alimento Balanceado", 1000, 0, "./images/jaspecachorro.jpg"))
+productoA.push(new Producto("Dog-Chow Cachorro", "Alimento Balanceado", 1000, 0, "./images/dogchowcachorro.png"))
+productoA.push(new Producto("Sabrositos Cachorro", "Alimento Balanceado", 1000, 0, "./images/sabrositoscachorr.png"))
 
-// const card = document.getElementById("cardDinamica");
-// for (let array of productoA) {
-//     const productoL = document.createElement("div");
-//     productoL.innerHTML += `
-//         <div class="card mb-3" style="width: 18rem;">
-//           <div class="container card-body">
-//             <img class="imgArray card-img-top" src="${array.img}" >
-//             <h3> ${ array.nombre} </h3>
-//             <p class="card-text">$${array.precio}</p>
-//             <button class="btn btn-warning rounded-pill text-secondary">Agregar al carrito</button>
-//             </div>
-//          </div>`
-//     card.appendChild(productoL);
-// }
+const card = document.getElementById("cardDinamica");
+for (let array of productoA) {
+    const productoL = document.createElement("div");
+    productoL.innerHTML += `
+        <div class="card mb-3" style="width: 18rem;">
+          <div class="container card-body">
+            <img class="imgArray card-img-top" src="${array.img}" >
+            <h3> ${ array.nombre} </h3>
+            <p class="card-text">$${array.precio}</p>
+            <button class="btn btn-warning rounded-pill text-secondary">Agregar al carrito</button>
+            </div>
+         </div>`
+    card.appendChild(productoL);
+}
 
 
 // let fondoMenu = document.getElementById("menu");
@@ -78,44 +78,57 @@
 
 //Eventos sobre el dom
 
-//Formulario Newsletter
+//Eventos sobre el Formulario Newsletter
 
-let form = document.getElementById("formulario");
-form.addEventListener("submit", (e) => botonEnviar(e));
+// let form = document.getElementById("formulario");
+// form.addEventListener("submit", (e) => botonEnviar(e));
 
 
-const botonEnviar = (e) => {
-    e.preventDefault();
-    let email = e.target[0].value;
-    createNewSuscriptor({
-        email
+// const botonEnviar = (e) => {
+//     e.preventDefault();
+//     let email = e.target[0].value;
+//     createNewSuscriptor({
+//         email
+//     });
+
+// };
+
+// class Suscriptor {
+//     constructor(email, id) {
+//         this.email = email;
+//         this.id = id;
+//     }
+
+
+// };
+// const createNewSuscriptor = (email) => {
+//     const id = listasuscriptores.generateId();
+//     const newSubs = new Suscriptor(email, id);
+//     listasuscriptores.addSuscriptor(newSubs);
+// };
+// class Suscriptores {
+//     constructor() {
+//         this.listasuscriptores = [];
+//     }
+//     addSuscriptor(suscriptort) {
+//         this.listasuscriptores.push(suscriptort);
+//     }
+
+//     generateId() {
+//         return Date.now();
+//     }
+// };
+// const listasuscriptores = new Suscriptores();
+
+
+//Eventos de carrito
+
+
+
+
+let botonesAgregarAlCarrito = document.querySelectorAll('button');
+botonesAgregarAlCarrito.forEach(el => {
+    el.addEventListener('click', function() {
+        alert("Se agrego el producto a su carrito");
     });
-
-};
-
-class Suscriptor {
-    constructor(email, id) {
-        this.email = email;
-        this.id = id;
-    }
-
-
-};
-const createNewSuscriptor = (email) => {
-    const id = listasuscriptores.generateId();
-    const newSubs = new Suscriptor(email, id);
-    listasuscriptores.addSuscriptor(newSubs);
-};
-class Suscriptores {
-    constructor() {
-        this.listasuscriptores = [];
-    }
-    addSuscriptor(suscriptort) {
-        this.listasuscriptores.push(suscriptort);
-    }
-
-    generateId() {
-        return Date.now();
-    }
-};
-const listasuscriptores = new Suscriptores();
+});
