@@ -30,7 +30,7 @@ for (let array of productoA) {
         <div class="card mb-3 item" style="width: 18rem;">
           <div class="container card-body">
             <img class="imgArray card-img-top" src="${array.img}" >
-            <h3 id="item-title"> ${ array.nombre} </h3>
+            <h3 class="item-title"> ${array.nombre} </h3>
             <p class="card-text">$${array.precio}</p>
             <button class="btn btn-warning rounded-pill text-secondary">Agregar al carrito</button>
             </div>
@@ -60,20 +60,7 @@ fondoFooter.style.background = "black";
 fondoFooter.style.color = "white";
 console.log(fondoMenu.innerHTML);
 
-// const pedido = [];
 
-// for (let i = 0; i < 2; i++) {
-//     pedido.push(prompt("Ingresar productos"));
-// }
-
-// let ul = document.createElement("ul");
-// let inner = "";
-// for (const lista of pedido) {
-//     inner += `<li>${lista}</li>`;
-// }
-
-// ul.innerHTML = inner;
-// document.body.appendChild(ul);
 
 
 //Eventos sobre el dom
@@ -139,7 +126,27 @@ botonesAgregarAlCarrito.forEach(el => {
 function elementosCard(event) {
     const button = event.target;
     const item = button.closest('.item');
-    const itemTitle = document.getElementsById("item-title").textContent;
-    const itemPrice = item.querySelector('.card-text');
-    console.log(itemTitle, itemPrice);
+    const itemTitle = item.querySelector(".item-title").textContent;
+    const itemPrice = item.querySelector(".card-text ").textContent;
+    agregarItemAlCarrito(itemTitle, itemPrice);
 }
+
+const finC = document.getElementsByClassName(".carrito");
+
+function agregarItemAlCarrito(itemTitle, itemPrice) {
+    const seleccionDeCarrito = document.createElement("div");
+    const contenidoDelCarrito =
+        ` <div class = "modal" tabindex = "-1" >
+        <div class = "modal-dialog","modal-content","modal-header" >
+        <h4 class = "modal-title">${itemTitle}</h4>
+        <h5 class = "modal-title">${itemPrice}</h5>
+        <button type = "button"class = "btn-close"data - bs - dismiss = "modal"aria - label = "Close"> </button>
+        </div> 
+        <div class = "modal-body">
+        </div>
+        <div class = "modal-footer">
+        <button type = "button"  class = "btn btn-secondary" data - bs - dismiss ="modal"> Cerrar</button> 
+        </div>`
+    seleccionDeCarrito.innerHTML = contenidoDelCarrito;
+    contenedorDeItemsDelCarrito.appendChild(seleccionDeCarrito);
+};
