@@ -43,11 +43,11 @@
     <footer id="newsletter">
 
         <div class="container mb-3 pb-3 pt-3" style="width: 100;">
-            <form id="formulario">
+            <form>
                 <label for="inputPassword6" class="col-form-label">Desea suscribirse al Newsletter?</label>
-                <input type="email" class="form-control mb-3" id="exampleFormControlInput1" placeholder="elcuervo@petshop.com">
+                <input type="email" class="form-control mb-3" id="exampleFormControlInput1" placeholder="elcuervo@petshop.com" onkeypress="capturarP(event)">
                 <input type="submit" class="btn-check" id="btn-check-2-outlined form" checked autocomplete="off">
-                <label class="btn btn-outline-secondary" for="btn-check-2-outlined" value="enviar">Enviar</label><br>
+                <label class="btn btn-outline-secondary" id="formulario" for="btn-check-2-outlined" value="enviar">Enviar</label><br>
             </form>
         </div>
 

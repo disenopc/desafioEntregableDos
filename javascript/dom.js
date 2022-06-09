@@ -27,10 +27,10 @@ const card = document.getElementById("cardDinamica");
 for (let array of productoA) {
     const productoL = document.createElement("div");
     productoL.innerHTML += `
-        <div class="card mb-3" style="width: 18rem;">
+        <div class="card mb-3 item" style="width: 18rem;">
           <div class="container card-body">
             <img class="imgArray card-img-top" src="${array.img}" >
-            <h3> ${ array.nombre} </h3>
+            <h3 id="item-title"> ${ array.nombre} </h3>
             <p class="card-text">$${array.precio}</p>
             <button class="btn btn-warning rounded-pill text-secondary">Agregar al carrito</button>
             </div>
@@ -39,26 +39,26 @@ for (let array of productoA) {
 }
 
 
-// let fondoMenu = document.getElementById("menu");
-// fondoMenu.style.background = "black";
-// fondoMenu.style.color = "gray";
-// console.log(fondoMenu.innerHTML);
+let fondoMenu = document.getElementById("menu");
+fondoMenu.style.background = "black";
+fondoMenu.style.color = "gray";
+console.log(fondoMenu.innerHTML);
 
-// let textoBotonUno = document.getElementById("botonUno");
-// console.log(textoBotonUno.innerHTML);
-// textoBotonUno.innerHTML = "Inicio";
+let textoBotonUno = document.getElementById("botonUno");
+console.log(textoBotonUno.innerHTML);
+textoBotonUno.innerHTML = "Inicio";
 
-// let textoBotonDos = document.getElementById("botonDos");
-// console.log(textoBotonDos.innerHTML);
-// textoBotonDos.innerHTML = "Tienda";
+let textoBotonDos = document.getElementById("botonDos");
+console.log(textoBotonDos.innerHTML);
+textoBotonDos.innerHTML = "Tienda";
 
-// let titulo = document.getElementById("titulo");
-// titulo.style.font = "bold  50px Source Serif"
+let titulo = document.getElementById("titulo");
+titulo.style.font = "bold  50px Source Serif"
 
-// let fondoFooter = document.getElementById("newsletter");
-// fondoFooter.style.background = "black";
-// fondoFooter.style.color = "white";
-// console.log(fondoMenu.innerHTML);
+let fondoFooter = document.getElementById("newsletter");
+fondoFooter.style.background = "black";
+fondoFooter.style.color = "white";
+console.log(fondoMenu.innerHTML);
 
 // const pedido = [];
 
@@ -80,16 +80,18 @@ for (let array of productoA) {
 
 //Eventos sobre el Formulario Newsletter
 
+
+
 let form = document.getElementById("formulario");
-form.addEventListener("submit", (e) => botonEnviar(e));
-
-
+form.addEventListener("click", (e) => botonEnviar(e));
 const botonEnviar = (e) => {
     e.preventDefault();
-    let email = e.target[0].value;
+    let email = e.target.parentNode.children[1].value;
+    console.log(email);
     createNewSuscriptor({
         email
     });
+    console.log(listasuscriptores);
 
 };
 
@@ -98,9 +100,8 @@ class Suscriptor {
         this.email = email;
         this.id = id;
     }
-
-
 };
+
 const createNewSuscriptor = (email) => {
     const id = listasuscriptores.generateId();
     const newSubs = new Suscriptor(email, id);
@@ -113,22 +114,32 @@ class Suscriptores {
     addSuscriptor(suscriptort) {
         this.listasuscriptores.push(suscriptort);
     }
-
     generateId() {
         return Date.now();
     }
 };
+
 const listasuscriptores = new Suscriptores();
 
 
+//Tecla enter
+function capturarP(e) {
+    if ((e.which == 13) || (e.keycode == 13)) {
+        alert("Escriba un email y luego presione el boton enviar")
+    }
+};
+
 //Eventos de carrito
-
-
-
 
 let botonesAgregarAlCarrito = document.querySelectorAll('button');
 botonesAgregarAlCarrito.forEach(el => {
-    el.addEventListener('click', function() {
-        alert("Se agrego el producto a su carrito");
-    });
+    el.addEventListener('click', elementosCard)
 });
+
+function elementosCard(event) {
+    const button = event.target;
+    const item = button.closest('.item');
+    const itemTitle = document.getElementsById("item-title").textContent;
+    const itemPrice = item.querySelector('.card-text');
+    console.log(itemTitle, itemPrice);
+}
