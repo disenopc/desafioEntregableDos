@@ -112,13 +112,14 @@ function capturarP(e) {
     }
 };
 
-//Eventos de carrito
+//Eventos de carrito --Lo deje expresado pero no funciona el codigo. Para la pre entrega 2 sera corregido .
 let finC = document.getElementById("cardBoton");
 finC.addEventListener("click", (e) => botonCarrito(e));
 const botonCarrito = (e) => {
     e.preventDefault();
-    let producto = e.target.parentNode.children[5].value;
-    let precio = e.target.parentNode.children[6].value;
+    let producto = e.target.parentNode.children[0].value;
+    let precio = e.target.parentNode.children[1].value;
+    let id = e.target.parentNode.children[2].value;
     crearUnCarrito({ producto, precio, id });
     console.log(carritoDeCompras);
 
